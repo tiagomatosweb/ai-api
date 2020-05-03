@@ -24,7 +24,6 @@ class PropertyAnalyticCreateRequest extends FormRequest
     public function rules()
     {
         return [
-            'property_id'      => 'required|integer|exists:properties,id',
             'analytic_type_id' => 'required|integer|exists:analytic_types,id',
             'value'            => 'required|string',
         ];

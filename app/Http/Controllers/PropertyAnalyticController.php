@@ -22,13 +22,22 @@ class PropertyAnalyticController extends Controller
     }
 
     /**
+     * @param Property $property
+     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
+     */
+    public function index(Property $property)
+    {
+        return $this->propertyAnalyticService->getAllPropertyAnalytics($property);
+    }
+
+    /**
      * @param PropertyAnalyticCreateRequest $request
      * @return \App\Http\Resources\PropertyAnalyticResource
      */
-    public function create(PropertyAnalyticCreateRequest $request)
+    public function create(Property $property, PropertyAnalyticCreateRequest $request)
     {
         $input = $request->validated();
-        return $this->propertyAnalyticService->createPropertyAnalytic($input);
+        return $this->propertyAnalyticService->createPropertyAnalytic($property, $input);
     }
 
     /**
@@ -36,9 +45,9 @@ class PropertyAnalyticController extends Controller
      * @param PropertyAnalyticUpdateRequest $request
      * @return \App\Http\Resources\PropertyAnalyticResource
      */
-    public function update(PropertyAnalytic $propertyAnalytic, PropertyAnalyticUpdateRequest $request)
+    public function update(Property $property, PropertyAnalytic $propertyAnalytic, PropertyAnalyticUpdateRequest $request)
     {
         $input = $request->validated();
-        return $this->propertyAnalyticService->updatePropertyAnalytic($propertyAnalytic, $input);
+        return $this->propertyAnalyticService->updatePropertyAnalytic($property, $propertyAnalytic, $input);
     }
 }
