@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\PropertyCreateRequest;
+use App\Http\Requests\PropertySummaryRequest;
 use App\Http\Services\PropertyService;
 
 class PropertyController extends Controller
@@ -19,6 +20,14 @@ class PropertyController extends Controller
     }
 
     /**
+     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
+     */
+    public function index()
+    {
+        return $this->propertyService->getProperties();
+    }
+
+    /**
      * @param PropertyCreateRequest $request
      * @return \App\Http\Resources\PropertyResource
      */
@@ -26,5 +35,14 @@ class PropertyController extends Controller
     {
         $input = $request->validated();
         return $this->propertyService->createProperty($input);
+    }
+
+    /**
+     * @param PropertySummaryRequest $request
+     */
+    public function summary(PropertySummaryRequest $request)
+    {
+        $input = $request->validated();
+        return $this->propertyService->getPropertiesSummary($input);
     }
 }
