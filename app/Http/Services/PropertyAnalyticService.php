@@ -41,7 +41,7 @@ class PropertyAnalyticService
      */
     public function updatePropertyAnalytic(Property $property, PropertyAnalytic $propertyAnalytic, $input)
     {
-        if ($propertyAnalytic->property_id !== $property->id) {
+        if ($propertyAnalytic->property_id != $property->id) {
             return response()->json([
                 'message' => 'The property analytic does not belong to the passed property'
             ], 403);
