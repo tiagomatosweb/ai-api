@@ -15,5 +15,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('/properties',                      [PropertyController::class, 'create']);
-Route::post('/properties/{property}/analytics',  [PropertyAnalyticController::class, 'create']);
+Route::post('/properties',                              [PropertyController::class, 'create']);
+Route::post('/property-analytics',                      [PropertyAnalyticController::class, 'create']);
+Route::put('/property-analytics/{propertyAnalytic}',    [PropertyAnalyticController::class, 'update']);

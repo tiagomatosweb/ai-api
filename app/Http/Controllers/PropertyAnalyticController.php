@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\PropertyAnalyticCreateRequest;
+use App\Http\Requests\PropertyAnalyticUpdateRequest;
 use App\Http\Services\PropertyAnalyticService;
 use App\Property;
-use Illuminate\Http\Request;
+use App\PropertyAnalytic;
 
 class PropertyAnalyticController extends Controller
 {
@@ -21,12 +22,23 @@ class PropertyAnalyticController extends Controller
     }
 
     /**
-     * @param Property $property
      * @param PropertyAnalyticCreateRequest $request
+     * @return \App\Http\Resources\PropertyAnalyticResource
      */
-    public function create(Property $property, PropertyAnalyticCreateRequest $request)
+    public function create(PropertyAnalyticCreateRequest $request)
     {
         $input = $request->validated();
-        return $this->propertyAnalyticService->createPropertyAnalytic($property, $input);
+        return $this->propertyAnalyticService->createPropertyAnalytic($input);
+    }
+
+    /**
+     * @param PropertyAnalytic $propertyAnalytic
+     * @param PropertyAnalyticUpdateRequest $request
+     * @return \App\Http\Resources\PropertyAnalyticResource
+     */
+    public function update(PropertyAnalytic $propertyAnalytic, PropertyAnalyticUpdateRequest $request)
+    {
+        $input = $request->validated();
+        return $this->propertyAnalyticService->updatePropertyAnalytic($propertyAnalytic, $input);
     }
 }

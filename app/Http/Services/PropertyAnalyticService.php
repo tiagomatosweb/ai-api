@@ -5,17 +5,26 @@ namespace App\Http\Services;
 
 use App\Http\Resources\PropertyAnalyticResource;
 use App\Property;
+use App\PropertyAnalytic;
 
 class PropertyAnalyticService
 {
     /**
-     * @param Property $property
      * @param $input
      * @return PropertyAnalyticResource
      */
-    public function createPropertyAnalytic(Property $property, $input)
+    public function createPropertyAnalytic($input)
     {
-        $propertyAnalytic = $property->analytics()->create($input);
+        $propertyAnalytic = PropertyAnalytic::create($input);
+        $propertyAnalytic->load('property', 'analyticType');
+
+        return new PropertyAnalyticResource($propertyAnalytic);
+    }
+
+    public function updatePropertyAnalytic(PropertyAnalytic $propertyAnalytic, $input)
+    {
+        $propertyAnalytic->fill($input);
+        $propertyAnalytic->save();
         $propertyAnalytic->load('property', 'analyticType');
 
         return new PropertyAnalyticResource($propertyAnalytic);
