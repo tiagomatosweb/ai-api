@@ -8,6 +8,10 @@ use App\PropertyAnalytic;
 
 class PropertyAnalyticService
 {
+    /**
+     * @param Property $property
+     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
+     */
     public function getAllPropertyAnalytics(Property $property)
     {
         $propertyAnalytics = $property->analytics;
@@ -17,6 +21,7 @@ class PropertyAnalyticService
     }
 
     /**
+     * @param Property $property
      * @param $input
      * @return PropertyAnalyticResource
      */
@@ -28,6 +33,12 @@ class PropertyAnalyticService
         return new PropertyAnalyticResource($propertyAnalytic);
     }
 
+    /**
+     * @param Property $property
+     * @param PropertyAnalytic $propertyAnalytic
+     * @param $input
+     * @return PropertyAnalyticResource|\Illuminate\Http\JsonResponse
+     */
     public function updatePropertyAnalytic(Property $property, PropertyAnalytic $propertyAnalytic, $input)
     {
         if ($propertyAnalytic->property_id !== $property->id) {

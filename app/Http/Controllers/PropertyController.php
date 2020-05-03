@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\PropertyCreateRequest;
 use App\Http\Services\PropertyService;
-use App\Property;
 
 class PropertyController extends Controller
 {

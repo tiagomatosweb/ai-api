@@ -2,8 +2,6 @@
 
 namespace App\Http\Services;
 
-
-use App\Http\Resources\PropertyAnalyticResource;
 use App\Http\Resources\PropertyResource;
 use App\Property;
 use Illuminate\Support\Str;

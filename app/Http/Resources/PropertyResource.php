@@ -21,7 +21,7 @@ class PropertyResource extends JsonResource
             'state'      => (string)$this->state,
             'country'    => (string)$this->country,
             'created_at' => (string)$this->created_at,
-            'updated_at'  => (string)$this->updated_at,
+            'updated_at' => (string)$this->updated_at,
         ];
     }
 }

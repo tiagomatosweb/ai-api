@@ -31,6 +31,7 @@ class PropertyAnalyticController extends Controller
     }
 
     /**
+     * @param Property $property
      * @param PropertyAnalyticCreateRequest $request
      * @return \App\Http\Resources\PropertyAnalyticResource
      */
@@ -41,6 +42,7 @@ class PropertyAnalyticController extends Controller
     }
 
     /**
+     * @param Property $property
      * @param PropertyAnalytic $propertyAnalytic
      * @param PropertyAnalyticUpdateRequest $request
      * @return \App\Http\Resources\PropertyAnalyticResource
