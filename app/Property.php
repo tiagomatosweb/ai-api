@@ -12,4 +12,13 @@ class Property extends Model
         'state',
         'country',
     ];
+
+    /**
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function analytics()
+    {
+        return $this->hasMany(PropertyAnalytic::class);
+    }
 }

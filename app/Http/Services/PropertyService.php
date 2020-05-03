@@ -9,6 +9,10 @@ use Illuminate\Support\Str;
 
 class PropertyService
 {
+    /**
+     * @param $input
+     * @return PropertyResource
+     */
     public function createProperty($input)
     {
         $input['guid'] = Str::uuid();

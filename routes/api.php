@@ -1,7 +1,7 @@
 <?php
 
+use App\Http\Controllers\PropertyAnalyticController;
 use App\Http\Controllers\PropertyController;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,4 +15,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('/properties', [PropertyController::class, 'create']);
+Route::post('/properties',                      [PropertyController::class, 'create']);
+Route::post('/properties/{property}/analytics',  [PropertyAnalyticController::class, 'create']);
