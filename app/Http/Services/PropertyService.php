@@ -30,6 +30,10 @@ class PropertyService
         return new PropertyResource($property);
     }
 
+    /**
+     * @param $input
+     * @return array
+     */
     public function getPropertiesSummary($input)
     {
         $propertyIds = !empty($input['type']) && !empty($input['keyword']) ? Property::where($input['type'], $input['keyword'])->pluck('id') : [];
