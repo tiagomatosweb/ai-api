@@ -16,8 +16,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::prefix('properties')->group(function() {
-    Route::get('',                                           [PropertyController::class, 'index']);
-    Route::post('',                                          [PropertyController::class, 'create']);
+    Route::get('',                                          [PropertyController::class, 'index']);
+    Route::post('',                                         [PropertyController::class, 'create']);
     Route::get('summary',                                   [PropertyController::class, 'summary']);
     Route::get('{property}/analytics',                      [PropertyAnalyticController::class, 'index']);
     Route::post('{property}/analytics',                     [PropertyAnalyticController::class, 'create']);
